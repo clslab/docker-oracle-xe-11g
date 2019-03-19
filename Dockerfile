@@ -11,6 +11,7 @@ ADD init.ora /
 ADD initXETemp.ora /
 
 # Prepare to install Oracle
+RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list
 RUN apt-get update && apt-get install -y -q libaio1 net-tools bc curl rlwrap && \
 apt-get clean && \
 rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/* &&\
